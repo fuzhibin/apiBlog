@@ -3,7 +3,9 @@ const {
     USERNAME_IS_EXISTS
 } = require('../constants/error-type');
 const loginService = require('../service/login.service')
-
+    /**
+     * 注册
+     */
 const verifyReg = async(ctx, next) => {
     const { username, password } = ctx.request.body;
     //判断用户是否输入用户名和密码

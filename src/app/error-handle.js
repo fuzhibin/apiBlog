@@ -2,7 +2,9 @@ const {
     USERNAME_OR_PASSWORD_IS_NULL,
     USERNAME_IS_NOT_EXISTS,
     PASSWORD_IS_NOT_CORRECT,
-    USERNAME_IS_EXISTS
+    USERNAME_IS_EXISTS,
+    USER_IS_NOT_LOGIN,
+    TOKEN_IS_NOT_VALUE
 } = require('../constants/error-type')
 
 const error_handle = (err, ctx) => {
@@ -23,6 +25,14 @@ const error_handle = (err, ctx) => {
             break;
         case USERNAME_IS_EXISTS:
             message = '用户名已经存在了~';
+            status = 404;
+            break;
+        case USER_IS_NOT_LOGIN:
+            message = '用户您还未登陆~';
+            status = 404;
+            break;
+        case TOKEN_IS_NOT_VALUE:
+            message = "存在无效的token，请重新登陆~";
             status = 404;
             break;
 
