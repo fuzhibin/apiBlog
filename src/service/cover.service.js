@@ -11,6 +11,11 @@ class CoverService {
         const [result] = await connection.execute(statement);
         return result;
     }
+    async saveArticleAndCover(articleId, coverimgId) {
+        const statement = `INSERT INTO article_cover(article_id,coverimg_id) VALUES(?,?);`;
+        const [result] = await connection.execute(statement, [articleId, coverimgId]);
+        return result;
+    }
 }
 
 module.exports = new CoverService();
