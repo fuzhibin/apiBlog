@@ -4,6 +4,10 @@ class LabelController {
     async create(ctx, next) {
         const { labels } = ctx.request.body;
         const { articleId } = ctx.params;
+        /** 
+         * 对添加过的标签再次处理 先清空在数据库article_label表中的记录
+         */
+        await labelService.deleteLabels(articleId);
         labels.forEach(async label => {
             const [result] = await labelService.getLabelByName(label);
             console.log(result);

@@ -7,7 +7,8 @@ const {
 const {
     getArticleList,
     getArticleDetailById,
-    saveArticleContent
+    saveArticleContent,
+    deleteArticle
 } = require('../controller/article.controller');
 /**
  * 全部文章列表请求
@@ -22,6 +23,6 @@ articleRouter.get('/list', getArticleList);
  */
 articleRouter.get('/:articleId/:flag', getArticleDetailById);
 articleRouter.post('/content', verifyAuth, saveArticleContent)
-
+articleRouter.delete('/:articleId', verifyAuth, deleteArticle)
 
 module.exports = articleRouter;

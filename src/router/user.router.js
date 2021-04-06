@@ -12,7 +12,10 @@ const {
     create,
     getUserArticle,
     getUserAvatar,
-    getUserInfo
+    getUserInfo,
+    getUserDeatilInfo,
+    updataUserInfo,
+    deleteUserAll
 } = require('../controller/user.controller')
 
 userRouter.post('/register', verifyReg, create);
@@ -24,5 +27,17 @@ userRouter.get('/:userId/avatar', getUserAvatar);
 /***
  * profile界面展示小部分用户信息
  */
-userRouter.get('/', verifyAuth, getUserInfo)
+userRouter.get('/', verifyAuth, getUserInfo);
+/**
+ * 获取详细信息
+ */
+userRouter.get('/detail', verifyAuth, getUserDeatilInfo);
+/**
+ * 修改我的信息
+ */
+userRouter.post('/', verifyAuth, updataUserInfo);
+/**
+ * 注销用户信息
+ */
+userRouter.delete('/logout', verifyAuth, deleteUserAll)
 module.exports = userRouter;

@@ -17,7 +17,7 @@ class FileService {
         return result;
     }
     async saveAttach(attachPath, mimetype) {
-        const statement = `INSERT INTO attachimg(filePath,mimetype) VALUES(?,?);`;
+        const statement = `INSERT INTO attachimg(filePath,mimetype,articleId) VALUES(?,?);`;
         const [result] = await connection.execute(statement, [attachPath, mimetype]);
         return result;
     }

@@ -16,6 +16,11 @@ class LabelService {
         const [result] = await connection.execute(statement, [articleId, labelId]);
         return result;
     }
+    async deleteLabels(articleId) {
+        const statement = `DELETE FROM article_label WHERE article_id = ?;`;
+        const [result] = await connection.execute(statement, [articleId]);
+        return result;
+    }
 }
 
 module.exports = new LabelService();

@@ -21,7 +21,7 @@ const {
 } = require('../controller/file.controller')
 
 fileRouter.post('/article', verifyAuth, articleUpload.single('file'), saveArticle);
-fileRouter.post('/coverPic', verifyAuth, coverImgsUpload.single('coverImg'), saveCoverPic);
+fileRouter.post('/coverPic/:articleId', verifyAuth, coverImgsUpload.single('coverImg'), saveCoverPic);
 fileRouter.post('/avatar', verifyAuth, avatarUpload.single('avatar'), saveAvatar);
 /**
  * 文章内图片截图

@@ -19,6 +19,7 @@
         "koa-multer": "^1.0.2",
         "koa-router": "^10.0.0",
         "markdown-it": "^12.0.4",
+        "mime-types": "^2.1.30",
         "mysql2": "^2.2.5"
     },
     "devDependencies": {
